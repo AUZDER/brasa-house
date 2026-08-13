@@ -1,0 +1,489 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111;
+    color:#fff;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(8px);
+    z-index:1000;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.logo img{
+    height:70px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#E67E22;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    height:100vh;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.overlay h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.overlay p{
+    font-size:22px;
+    margin-bottom:35px;
+    max-width:700px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    background:#E67E22;
+    padding:15px 35px;
+    border-radius:40px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#ff9800;
+    transform:scale(1.05);
+}
+
+/* ===========================
+   SECCIONES
+=========================== */
+
+section{
+    padding:100px 8%;
+}
+
+section h2{
+    text-align:center;
+    font-size:42px;
+    color:#E67E22;
+    margin-bottom:60px;
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+.card{
+
+    background:#1c1c1c;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 30px rgba(0,0,0,.5);
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+    transition:.35s;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.contenido{
+
+    padding:25px;
+
+}
+
+.contenido h3{
+
+    font-size:24px;
+
+    margin-bottom:15px;
+
+}
+
+.contenido p{
+
+    color:#cfcfcf;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+
+}
+
+.contenido span{
+
+    display:block;
+
+    font-size:28px;
+
+    color:#E67E22;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+}
+
+.contenido button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#E67E22;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.contenido button:hover{
+
+    background:#ff9800;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   NOSOTROS
+=========================== */
+
+.nosotros{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.nosotros-texto h2{
+
+    text-align:left;
+
+}
+
+.nosotros p{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.nosotros img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.5);
+
+}
+
+/* ===========================
+   CONTACTO
+=========================== */
+
+.contacto-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+}
+
+.info h3{
+
+    margin-top:20px;
+
+    color:#E67E22;
+
+}
+
+.info p{
+
+    margin-top:5px;
+
+    color:#ddd;
+
+}
+
+.contacto input,
+.contacto textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#222;
+
+    color:white;
+
+}
+
+.contacto textarea{
+
+    resize:none;
+
+}
+
+.contacto button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#E67E22;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:17px;
+
+}
+
+.contacto button:hover{
+
+    background:#ff9800;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+
+    background:#000;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    border-top:3px solid #E67E22;
+
+}
+
+.footer-logo{
+
+    width:220px;
+
+    margin-bottom:20px;
+
+}
+
+.footer p{
+
+    margin:20px 0;
+
+    color:#ddd;
+
+}
+
+.redes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin:25px 0;
+
+}
+
+.redes img{
+
+    height:45px;
+
+    transition:.3s;
+
+}
+
+.redes img:hover{
+
+    transform:scale(1.1);
+
+}
+
+.libro{
+
+    width:150px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .container{
+
+        flex-direction:column;
+
+    }
+
+    nav{
+
+        margin-top:20px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+    .overlay h1{
+
+        font-size:48px;
+
+    }
+
+    .overlay p{
+
+        font-size:18px;
+
+    }
+
+    .nosotros{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contacto-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
