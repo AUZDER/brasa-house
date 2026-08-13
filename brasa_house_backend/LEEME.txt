@@ -1,0 +1,76 @@
+=====================================================
+ BRASA HOUSE - Actualización completa
+=====================================================
+Esta actualización agrega: login/registro obligatorio para
+reservar, reCAPTCHA, límite de 2 reservas activas, bloqueo de
+usuarios, carrito de compras con pago simulado, estado
+Disponible/Agotado en platos, dashboard con datos reales,
+y 6 mesas adicionales (10 en total).
+
+PASO 1: Actualizar la base de datos
+--------------------------------
+1. Abre http://localhost/phpmyadmin
+2. Entra a la base "brasahouse"
+3. Ve a la pestaña "SQL"
+4. Pega TODO el contenido de actualizacion_v2.sql y ejecútalo
+   (esto crea las tablas usuario, pedido, detalle_pedido, agrega
+   columnas nuevas a reserva y plato, y agrega 6 mesas más)
+
+PASO 2: Reemplazar el backend
+--------------------------------
+Reemplaza tu carpeta "brasa_house_backend" en htdocs por esta
+nueva versión completa (trae todos los archivos, no solo los
+nuevos).
+
+PASO 3: Reemplazar archivos de React
+--------------------------------
+Reemplaza estos archivos en tu proyecto (mismas rutas):
+
+  src/App.js                          <- reemplazar
+  src/components/Header.jsx           <- reemplazar
+  src/components/Login.jsx            <- reemplazar
+  src/components/Reservas.jsx         <- reemplazar
+  src/components/Menu.jsx             <- reemplazar
+  src/components/Admin.jsx            <- reemplazar
+  src/components/Carrito.jsx          <- ARCHIVO NUEVO (créalo)
+  src/context/CarritoContext.jsx      <- ARCHIVO NUEVO (crea la
+                                          carpeta "context" dentro
+                                          de src si no existe)
+
+PASO 4: Probar el flujo completo
+--------------------------------
+1. Enciende XAMPP (Apache + MySQL) y corre "npm start"
+2. Ve a "Reservar Mesa" sin haber iniciado sesión -> debe salir
+   el mensaje "Debe loguearse para poder reservar mesa"
+3. Ve a Login -> pestaña "Registrarme" -> llena el formulario,
+   marca el reCAPTCHA (siempre aprueba, es la clave de prueba de
+   Google) y regístrate
+4. Inicia sesión con el correo y contraseña que creaste
+5. Ve a Reservar Mesa -> ahora sí te deja reservar
+6. Intenta hacer una 3ra reserva activa -> debe rechazarla
+   (límite de 2)
+7. Ve al Menú -> agrega platos al carrito (ícono carrito en el header)
+8. Ve al Carrito -> elige método de pago -> Confirmar Pedido
+9. Entra como Admin (admin/1234) -> revisa las 4 tablas nuevas:
+   Reservas, Mesas (ahora 10), Platos (puedes marcar Agotado) y
+   Usuarios (puedes bloquear/desbloquear)
+
+=====================================================
+ IMPORTANTE: sobre el reCAPTCHA
+=====================================================
+Uso la clave de PRUEBA pública de Google, que siempre aprueba
+el checkbox (sirve para que funcione sin configuración extra).
+Si tu profesor pide que sea el reCAPTCHA "real" de tu propia
+cuenta:
+1. Ve a https://www.google.com/recaptcha/admin
+2. Regístrate con "localhost" como dominio, tipo reCAPTCHA v2
+3. Te da 2 claves: reemplaza SITE_KEY_RECAPTCHA en Login.jsx
+   (la pública) y la $secretKey en api/usuarios.php (la secreta)
+
+=====================================================
+ Notas sobre la tabla "cliente" (la de antes)
+=====================================================
+La tabla "cliente" y la reserva de prueba que ya habías creado
+("Alexander Carmelino") se quedan intactas y siguen apareciendo
+en el panel Admin, no se pierde nada. Las reservas NUEVAS ya
+no usan esa tabla, usan la tabla "usuario" (con login).
